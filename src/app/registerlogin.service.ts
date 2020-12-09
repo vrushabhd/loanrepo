@@ -37,7 +37,7 @@ private api ='https://mailthis.to/Vrushabh'
 
    getAllApplicants(){
 
-    return this.http.get('http://localhost:8080/applicants');
+    return this.http.get('https://loanpay-backend.herokuapp.com/applicants');
   
   
     }
