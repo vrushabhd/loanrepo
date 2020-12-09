@@ -1,0 +1,117 @@
+.contact_form {
+    margin-top: -180px;
+    margin-bottom: 80px;
+}
+.contact_form_text {
+    padding: 70px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+    background: rgb(255, 255, 255);
+}
+
+.contact_form_text .contact_form_title {
+    margin-bottom: 34px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.contact_form_text .contact_form_title h2 {
+    font-size: 40px;
+    color: rgb(50, 50, 50);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+p {
+    font-size: 15px;
+    font-family: Lato, sans-serif;
+    color: rgb(92, 92, 92);
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0px 0px 15px;
+}
+
+
+.contact_form_text form .input-list input {
+    width: calc(50% - 20px);
+    float: left;
+    margin-right: 20px;
+}
+.contact_form_text form input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 2px;
+    font-size: 13px;
+    padding-left: 20px;
+    color: rgb(112, 112, 112);
+    margin-bottom: 20px;
+}
+.site-btn {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 14px 30px 12px;
+    background: rgb(76, 220, 29);
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}   
+.contact_form_text form textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ebebeb;
+    border-radius: 2px;
+    font-size: 13px;
+    padding-left: 20px;
+    padding-top: 12px;
+    color: #707070;
+    margin-bottom: 24px;
+    resize: none;
+}
+#foo{
+
+
+    margin-top: 50px; 
+    
+    
+    }
+
+
+
+    .footer {
+        background: #195c7d;
+        padding-top: 10px;
+    }
+
+   
+
+
+
+.footer_widget p ,ul {
+
+color: rgb(242, 245, 245);
+
+
+
+
+
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+      }
+
+
+
+
+      body{
+
+
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+    }

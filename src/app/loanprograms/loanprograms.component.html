@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      
+    
+</head>
+<body>
+
+    <h2 id="h2" style="text-align: center;">Loan Programs</h2>
+   
+    <div class="col-md-4 offset-md-4 active-cyan-3 active-cyan-4">
+        
+
+    <input style="margin-bottom: 20px;" type="text"[(ngModel)]="search"class="form-control " name="search" placeholder="Enter the Type Of Loan">
+    <!-- style="margin-left: 150px;margin-bottom: 30px;" -->
+
+</div>
+<button  style="margin-right: 20px;margin-bottom: 20px;margin-left: 20px;"  class="fa fa-download btn btn-info " (click)="download()">  Download PDF</button>
+
+    <div class="col-md-12">
+        
+        <table id=table class="table table-bordered table-hover shadow w-100">
+            <thead class="thead-dark">
+
+          <tr>
+            <th>LoanType</th>
+            <th>Duration(Years)</th>
+            <th> Loan Amount(₹)</th>
+            <th>RateOfInterest</th>
+            <th>Monthly EMI(₹)</th>
+            <th>Pay Amount(₹)</th>
+            <th>Total Interest(₹)</th>
+            <th>Update</th>
+            <th>Delete</th>
+           
+          </tr>
+        </thead>    
+          <tbody>
+            <tr *ngFor ="let loanprogram of loanprograms.loanInfo | filter:search ">
+                <td>{{loanprogram.typeofloan}}</td>
+                <td>{{loanprogram.duration}}</td>
+                <td>{{loanprogram.details | currency :'₹'}}</td>
+                <td>{{loanprogram.rateofinterest}}%</td>
+                <td>₹{{(loanprogram.details * (loanprogram.rateofinterest/100) * (1+(loanprogram.rateofinterest /100)) * loanprogram.duration * 12)/((1+(loanprogram.rateofinterest/100))*loanprogram.duration * 12 - 1) | number :'1.0-2' }}</td>
+                <td>₹{{(loanprogram.details * (loanprogram.rateofinterest/100) * (1+(loanprogram.rateofinterest /100)) * loanprogram.duration * 12)/((1+(loanprogram.rateofinterest/100))*loanprogram.duration * 12 - 1) *loanprogram.duration * 12 | number :'1.0-2'}}</td>
+                <td>₹{{((loanprogram.details * (loanprogram.rateofinterest/100) * (1+(loanprogram.rateofinterest /100)) * loanprogram.duration * 12)/((1+(loanprogram.rateofinterest/100))*loanprogram.duration * 12 - 1) *loanprogram.duration * 12 ) - loanprogram.details  | number :'1.0-2'}}</td>
+               
+
+         
+            <td><button type="button" class="btn btn-success" (click)='onUpdate(loanprogram.loanid)' >Update</button></td>
+            <td><button type="button" class="btn btn-danger" (click)='onDelete(loanprogram.loanid)' ><i class="fa fa-trash fa-2x"></i></button></td>
+    
+    
+    
+    
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+   
+<footer class="footer" style="margin-top: 300px;">
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-3">
+
+                <div class="footer_about">
+
+                    <div class="footer_logo">
+
+                        <img src="../assets/logo.png" alt="" height="150px">
+
+
+                    </div>
+                    <p style="color: rgb(255, 255, 255);">
+                        Please remember though that how far you go is up to you. There is no substitute for your own
+                        work and effort in succeeding in this business.</p>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <div id="foo" class="col-lg-3 offset-lg-1 col-md-3 col-sm-6">
+                <div class="footer_widget">
+                    <h5 style="color: rgb(255, 255, 255);">Services</h5>
+                    <div class="footer_widget">
+                        <ul>
+                            <li>Personal Loans</li>
+                            <li>Business Loans</li>
+                            <li>Online Cash Loans</li>
+                            <li>Cash Advance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="foo" class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 ">
+                <div class="footer_widget footer_widget-address">
+                    <h5 style="color: rgb(255, 255, 255);">Open Hours</h5>
+                    <p>We work all days a week, Please contact us for any inquiry.</p>
+                    <ul>
+                        <li>Monday-Friday: 11:00 am - 8:00 pm</li>
+                        <li>Saturday: 10:00 am - 6:00 pm</li>
+                        <li>Sunday: 11:00 am - 6:00 pm</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+</footer>
+
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+

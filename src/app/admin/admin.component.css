@@ -1,0 +1,79 @@
+
+
+body{
+
+/* 
+  background-color: #0961ae;
+  background-image: linear-gradient(62deg, #3290b8 0%, #F7CE68 100%);
+  
+
+ */
+  background-color: #E2EBF0;
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  #foo{
+
+
+    margin-top: 50px; 
+    
+    
+    }
+
+
+
+    .footer {
+        background: #195c7d;
+        padding-top: 10px;
+    }
+
+   
+
+
+
+.footer_widget p ,ul {
+
+color: rgb(242, 245, 245);
+
+
+
+
+
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+      }
+
+

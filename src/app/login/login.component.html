@@ -1,0 +1,180 @@
+<body>
+    
+    
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="../assets/loan.png" class="image"> </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <div class="alert alert-info" role="alert" *ngIf="valid">
+                            User Login successfull !!
+                          </div>
+                    </div>
+                    <form [formGroup]="logForm" (ngSubmit)="onSubmit()" >
+
+                        <div class="row px-3 form-group"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Username</h6>
+                        </label> <input type="text" name="username" placeholder="Enter username" class="form-control" placeholder="Enter the Username" formControlName ="username"> </div>
+                        <div class="alert alert-danger " *ngIf="logForm.get('username').touched && logForm.get('username').dirty && logForm.get('username').value.length < 6">username should be minimum 6 characters.</div>
+                        
+                    <div class="row px-3 form-group"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Password</h6>
+                        </label> <input type="password" name="password" placeholder="Enter password" class="form-control" placeholder="Enter the Password" formControlName ="password"> </div>
+                        <div  class="alert alert-danger " *ngIf="logForm.get('password').touched && logForm.get('password').dirty && logForm.get('password').value.length < 6">password should be minimum 6 characters.</div>
+                        <div class="alert alert-danger" role="alert" *ngIf ="msg">
+                            {{msg}}
+                          </div>
+                    
+                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" [disabled]="!logForm.valid">Login</button> </div>
+                    </form>
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger " routerLink ="/register">Register</a></small> </div>
+                </div>
+            </div> 
+        </div>
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2020. All rights reserved.</small>
+                </div>
+        </div>
+    </div>
+</div>  
+
+<!-- <div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+            <form class="login100-form validate-form flex-sb flex-w">
+                <span class="login100-form-title p-b-32">
+                    Account Login
+                </span>
+
+                <span class="txt1 p-b-11">
+                    Username
+                </span>
+                <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                    <input class="input100" type="text" name="username" >
+                    <span class="focus-input100"></span>
+                </div>
+                
+                <span class="txt1 p-b-11">
+                    Password
+                </span>
+                <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                    <span class="btn-show-pass">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                    <input class="input100" type="password" name="pass" >
+                    <span class="focus-input100"></span>
+                </div>
+                
+                <div class="flex-sb-m w-full p-b-48">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt3">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+<footer class="footer">
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-3">
+
+                <div class="footer_about">
+
+                    <div class="footer_logo">
+
+                        <img src="../assets/logo.png" alt="" height="150px">
+
+
+                    </div>
+                    <p style="color: rgb(255, 255, 255);">
+                        Please remember though that how far you go is up to you. There is no substitute for your own
+                        work and effort in succeeding in this business.</p>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <div id="foo" class="col-lg-3 offset-lg-1 col-md-3 col-sm-6">
+                <div class="footer_widget">
+                    <h5 style="color: rgb(255, 255, 255);">Services</h5>
+                    <div class="footer_widget">
+                        <ul>
+                            <li>Personal Loans</li>
+                            <li>Business Loans</li>
+                            <li>Online Cash Loans</li>
+                            <li>Cash Advance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="foo" class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 ">
+                <div class="footer_widget footer_widget-address">
+                    <h5 style="color: rgb(255, 255, 255);">Open Hours</h5>
+                    <p>We work all days a week, Please contact us for any inquiry.</p>
+                    <ul>
+                        <li>Monday-Friday: 11:00 am - 8:00 pm</li>
+                        <li>Saturday: 10:00 am - 6:00 pm</li>
+                        <li>Sunday: 11:00 am - 6:00 pm</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+</footer>
+
+</body>

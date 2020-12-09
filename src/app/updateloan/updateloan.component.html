@@ -1,0 +1,495 @@
+<!-- 
+<body style="background-image:url(../assets/formbackg.jpg);">
+    
+    
+<form class="col-md-6 offset-md-3 mb-4" [formGroup]='productForm' (ngSubmit)='onSubmit()'>
+    <div class="card">
+        <div class="alert alert-info" role="alert" *ngIf='isAdded'>
+            Application Form submitted successfully !!
+          </div>
+        <div class="card-header text-center bg-primary mt-2">
+            <h3>Application Form </h3>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="name ">CustomerName</label>
+                <input type="text" class="form-control" name="customername" id="name" formControlName='customername' pattern="[A-Za-z0-9]*">
+                <div style="color:red;" *ngIf="productForm.get('customername').touched && productForm.get('customername').dirty && productForm.get('customername').value.length < 4 ">Enter the customername.</div>
+
+            </div>
+            <div class="form-group col-md-6 ">
+                <label for="quantity">Phone Number</label>
+                <input type="text" class="form-control" name="phonenumber" formControlName='phonenumber' >
+                <div style="color:red;" *ngIf="productForm.get('phonenumber').touched && productForm.get('phonenumber').dirty && productForm.get('phonenumber').value.length ==''">Enter the phone number.</div>
+                <div style="color:red;" *ngIf="productForm.get('phonenumber').value.length > 10 ">Invalid phone number</div>
+            </div>
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="name ">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" formControlName='emailid' >
+                    <div style="color:red;" *ngIf="productForm.get('emailid').touched && productForm.get('emailid').dirty  && productForm.get('emailid').value.length ==''">Enter the Email</div>
+                    <div  style="color:red;" *ngIf ="emailid.errors?.email">Not a Valid email address</div>
+                </div>
+                <div class="form-group col-md-6 ">
+                    <label for="quantity">Date of Birth</label>
+                    <input type="date" class="form-control" name="dateofbirth" formControlName='dateofbirth'  required>
+                </div>
+                </div>
+                <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="imageUrl">Gender</label><br>
+                <input type="radio" name="gender" value="male" required formControlName="gender">  Male 
+                <input type="radio" name="gender" value="female" formControlName="gender"> Female
+                            </div>
+            <div class="form-group col-md-6">
+                <label for="price">Occuapation</label>
+                <input type="text" class="form-control" name="occupation"  formControlName='occupation' pattern="[0-9]*">
+                <div style="color:red;" *ngIf="productForm.get('occupation').touched && productForm.get('occupation').dirty && productForm.get('occupation').value.length < 4">occupation must be minimum 4 characters</div>
+
+            </div>
+            </div>
+
+                <div class="form-group">
+                    <label >Annual Income</label>
+                    <input type="text" class="form-control" name="annualincome"  formControlName='annualincome' >
+                    <div style="color:red;" *ngIf="productForm.get('annualincome').touched && productForm.get('annualincome').dirty && productForm.get('annualincome').value.length < 3">Enter AnualIncome</div>
+                </div>
+               
+            
+            <div class="form-group">
+                <label >Address</label>
+                <textarea class="form-control" name="address"  formControlName='address' rows="1">Enter your address</textarea>
+                <div style="color:red;" *ngIf="productForm.get('address').touched && productForm.get('address').dirty && productForm.get('address').value.length < 8">address must be minimum 8 characters</div>
+
+            </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label > Assurer Name</label>
+                <input type="text" class="form-control" name="assurername"  formControlName='assurername'>
+                <div style="color:red;" *ngIf="productForm.get('assurername').touched && productForm.get('assurername').dirty && productForm.get('assurername').value.length < 4 && productForm.get('assurername').value.length==''">Enter the valid assurername.</div>
+
+            </div>
+            <div class="form-group col-md-6 ">
+                <label >Assurer Contact</label>
+                <input type="text" class="form-control" name="assurercontactnum" formControlName='assurercontactnum' pattern="[0-9]*">
+                <div style="color:red;" *ngIf="productForm.get('assurercontactnum').touched && productForm.get('assurercontactnum').dirty && productForm.get('assurercontactnum').value.length==''">Enter the phone number.</div>
+                <div style="color:red;" *ngIf="productForm.get('assurercontactnum').value.length > 10">Invalid phone number</div>
+            </div>
+            </div>
+            <div class="form-group">
+                <label > Assurer Address</label>
+                <textarea class="form-control" name="assureraddress"  formControlName='assureraddress' rows="1"></textarea>
+                <div style="color:red;" *ngIf="productForm.get('assureraddress').touched && productForm.get('assureraddress').dirty && productForm.get('assureraddress').value.length < 4">address must be minimum 8 characters</div>
+
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label >Loan Type</label>
+                    <input type="text" class="form-control" name="loantype"  formControlName='loantype'>
+                    <div style="color:red;" *ngIf="productForm.get('loantype').touched && productForm.get('loantype').dirty && productForm.get('loantype').value.length < 3">please provide loantype.</div>
+
+
+                </div>
+                <div class="form-group col-md-6 ">
+                    <label >Loan Amount</label>
+                    <input type="text" class="form-control" name="loanamount" formControlName='loanamount' >
+                    <div style="color:red;" *ngIf="productForm.get('loanamount').touched && productForm.get('loanamount').dirty && productForm.get('loanamount').value.length < 3">please provide loanamount.</div>
+
+                   
+                </div>
+                </div>
+        </div>
+
+        <div class="card-footer block">
+            <button type="submit" class="btn btn-primary" >Submit</button>&nbsp; &nbsp;
+            <button class="btn btn-danger" type="reset" name="submit">Reset</button>
+
+        </div>
+    </div>
+</form> 
+<br>
+<br>
+</body> -->
+
+<body>
+
+    <div class="jumbotron jumbotron-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <h1 class="h1" style="text-align: center;">
+                        Application Form </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="alert alert-info" role="alert" *ngIf='isAdded'>
+            Application Form Updated successfully !!
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <form [formGroup]='productForm' (ngSubmit)='onSubmit()'>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name ">Customer Name</label>
+                                        <input type="text" class="form-control" name="customername" id="name"
+                                            formControlName='customername'placeholder="Enter your Name ,Ex. John Doe">
+                                        <div style="margin-top: 10px;"
+                                            *ngIf="f.customername.touched && f.customername.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.customername.errors.required">Customer Name is required.</div>
+                                            <div *ngIf="f.customername.errors.pattern">Numbers are not allowed.</div>
+                                            <div *ngIf="f.customername.errors?.minlength">
+                                                Name must be at least 4 characters long.
+                                            </div>
+                                            <div *ngIf="f.customername.errors?.maxlength">
+                                                Name must be at most 20 characters long.
+                                            </div>
+                                        </div>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('customername').touched && productForm.get('customername').dirty && productForm.get('customername').value.length < 4 ">
+                                            Enter the customername.</div> -->
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="quantity">Phone Number</label>
+                                        <input type="number" class="form-control" name="phonenumber"
+                                            formControlName='phonenumber' placeholder="Enter your Phone Number">
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('phonenumber').touched && productForm.get('phonenumber').dirty ">
+                                            Enter the phone number.</div> -->
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('phonenumber').value.length > 10 ">Invalid phone
+                                            number</div> -->
+                                        <div style="margin-top: 10px;"
+                                            *ngIf="f.phonenumber.touched && f.phonenumber.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.phonenumber.errors.required">Mobile Number is required.</div>
+                                            <div *ngIf="f.phonenumber.errors.pattern">Please, Enter 10 digit Mobile
+                                                Number.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label for="imageUrl">Gender</label><br>
+                                    <input type="radio" name="gender" value="male" required formControlName="gender">
+                                    Male
+                                    <input type="radio" name="gender" value="female" formControlName="gender"> Female
+
+                                    <div *ngIf="!f.gender.valid && (f.gender.dirty || f.gender.touched)">
+                                        <div *ngIf ="f.gender.errors.required">
+                                          gender is required
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="quantity">Date of Birth</label>
+                                        <input type="date" class="form-control" name="dateofbirth"
+                                            formControlName='dateofbirth'>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('dateofbirth').touched && productForm.get('dateofbirth').invalid  ">
+                                            Enter the Date of birth.</div> -->
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.dateofbirth.touched && f.dateofbirth.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.dateofbirth.errors.required">Date of birth is required.</div>
+                                                  </div>
+
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="name ">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            formControlName='emailid' placeholder="Enter your Email">
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('emailid').touched && productForm.get('emailid').dirty  && productForm.get('emailid').value.length ==''">
+                                            Enter the Email</div>
+                                        <div style="color:red;" *ngIf="emailid.errors?.email">Not a Valid email address -->
+
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.emailid.touched && f.emailid.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.emailid.errors.required">Email is required.</div>
+
+                                    <div *ngIf="f.emailid.errors.pattern">Please, Enter Valid Email Address.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <textarea class="form-control" name="address" formControlName='address' placeholder="Enter your Address"
+                                        rows="3">Enter your address</textarea>
+                                    <!-- <div style="color:red;"
+                                        *ngIf="productForm.get('address').touched && productForm.get('address').dirty && productForm.get('address').value.length < 8">
+                                        address must be minimum 8 characters</div> -->
+                                        <div style="margin-top: 10px;"
+                                        *ngIf="f.address.touched && f.address.invalid"
+                                        class="alert alert-danger">
+                                        <div *ngIf="f.address.errors.required">Address is required.</div>
+                                        <div *ngIf="f.address.errors?.minlength">
+                                            address must be at least 4 characters long.
+                                        </div>
+                                        </div>
+                                </div>
+
+
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 ">
+                                        <label for="price">Occuapation</label>
+                                        <input type="text" class="form-control" name="occupation"
+                                            formControlName='occupation' >
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.occupation.touched && f.occupation.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.occupation.errors.required">Customer Name is required.</div>
+                                            <div *ngIf="f.occupation.errors.pattern">Numbers are not allowed.</div>
+                                            <div *ngIf="f.occupation.errors?.minlength">
+                                                Name must be at least 4 characters long.
+                                            </div>
+                                            <div *ngIf="f.occupation.errors?.maxlength">
+                                                Name must be at most 30 characters long.
+                                            </div>
+                                        </div>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('occupation').touched && productForm.get('occupation').dirty && productForm.get('occupation').value.length < 4">
+                                            occupation must be minimum 4 characters</div> -->
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Annual Income</label>
+                                        <input type="number" class="form-control" name="annualincome"
+                                            formControlName='annualincome'>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('annualincome').touched && productForm.get('annualincome').dirty && productForm.get('annualincome').value.length < 3">
+                                            Enter AnualIncome</div> -->
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.annualincome.touched && f.annualincome.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.annualincome.errors.required">Annucal Income is required.</div>
+                                            <div *ngIf="f.annualincome.errors.pattern">Annucal Income is Invalid.</div>
+
+                                            <!-- <div *ngIf="f.annualincome.errors.pattern">Please, Enter 10 digit Mobile
+                                                Number.</div> -->
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6">
+                                        <label> Assurer Name</label>
+                                        <input type="text" class="form-control" name="assurername"
+                                            formControlName='assurername'>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('assurername').touched && productForm.get('assurername').dirty && productForm.get('assurername').value.length < 4 && productForm.get('assurername').value.length==''">
+                                            Enter the valid assurername.</div> -->
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.assurername.touched && f.assurername.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.assurername.errors.required">Customer Name is required.</div>
+                                            <div *ngIf="f.assurername.errors.pattern">Numbers are not allowed.</div>
+                                            <div *ngIf="f.assurername.errors?.minlength">
+                                                Name must be at least 4 characters long.
+                                            </div>
+                                            <div *ngIf="f.assurername.errors?.maxlength">
+                                                Name must be at most 20 characters long.
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="form-group col-md-6 ">
+                                        <label>Assurer Contact Number</label>
+                                        <input type="number" class="form-control" name="assurercontactnum"
+                                            formControlName='assurercontactnum' >
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.assurercontactnum.touched && f.assurercontactnum.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.assurercontactnum.errors.required">Mobile Number is required.</div>
+                                            <div *ngIf="f.assurercontactnum.errors.pattern">Please, Enter 10 digit Mobile
+                                                Number.</div>
+                                        </div>
+                                       
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('assurercontactnum').touched && productForm.get('assurercontactnum').dirty && productForm.get('assurercontactnum').value.length==''">
+                                            Enter the phone number.</div>
+                                        <div style="color:red;"
+                                            *ngIf="productForm.get('assurercontactnum').value.length > 10">Invalid phone
+                                            number</div> -->
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label> Assurer Address</label>
+                                    <textarea class="form-control" name="assureraddress"
+                                        formControlName='assureraddress' rows="3" placeholder="Enter Assurer Address"></textarea>
+
+                                        <div style="margin-top: 10px;"
+                                        *ngIf="f.assureraddress.touched && f.assureraddress.invalid"
+                                        class="alert alert-danger">
+                                        <div *ngIf="f.assureraddress.errors.required">Address is required.</div>
+                                        <div *ngIf="f.assureraddress.errors?.minlength">
+                                            address must be at least 4 characters long.
+                                        </div>
+                                        </div>
+                                    <!-- <div style="color:red;"
+                                        *ngIf="productForm.get('assureraddress').touched && productForm.get('assureraddress').dirty && productForm.get('assureraddress').value.length < 4">
+                                        address must be minimum 8 characters</div> -->
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6">
+                                        <label>Loan Type</label>
+                                        <input type="text" class="form-control" name="loantype"
+                                            formControlName='loantype'placeholder ="Mention type of loan ,Ex.Medical Loan">
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('loantype').touched && productForm.get('loantype').dirty && productForm.get('loantype').value.length < 3">
+                                            please provide loantype.</div> -->
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.loantype.touched && f.loantype.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.loantype.errors.required">Customer Name is required.</div>
+                                            <div *ngIf="f.loantype.errors.pattern">Numbers are not allowed.</div>
+                                            <div *ngIf="f.loantype.errors?.minlength">
+                                                Name must be at least 4 characters long.
+                                            </div>
+                                            <div *ngIf="f.loantype.errors?.maxlength">
+                                                Name must be at most 20 characters long.
+                                            </div>
+                                            </div>
+
+                                    </div>
+                                    <div class="form-group col-md-6 ">
+                                        <label>Loan Amount</label>
+                                        <input type="number" class="form-control" name="loanamount"
+                                            formControlName='loanamount' placeholder="Enter Loan Amount">
+                                            <div style="margin-top: 10px;"
+                                            *ngIf="f.loanamount.touched && f.loanamount.invalid"
+                                            class="alert alert-danger">
+                                            <div *ngIf="f.loanamount.errors.required">Loan Amount is required.</div>
+                                            <div *ngIf="f.loanamount.errors.pattern">Loan Amountis Invalid.</div>
+                                            </div>
+                                        <!-- <div style="color:red;"
+                                            *ngIf="productForm.get('loanamount').touched && productForm.get('loanamount').dirty && productForm.get('loanamount').value.length < 3">
+                                            please provide loanamount.</div> -->
+
+
+                                    </div>
+                                </div>
+
+                                <!-- <p>&nbsp;</p> -->
+
+                                <button type="submit" class="btn btn-success"
+                                    style="margin-right:16px;margin-bottom: 10px;"[disabled]=!productForm.valid>UPDATE</button>
+                                <!-- <button type="reset" class="btn btn-danger"
+                                    style="margin-right:16px;margin-bottom: 10px;"></button> -->
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <h1>{{productForm.valid}} sdd</h1> -->
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3">
+
+                    <div class="footer_about">
+
+                        <div class="footer_logo">
+
+                            <img src="../assets/logo.png" alt="" height="150px">
+
+
+                        </div>
+                        <p style="color: rgb(255, 255, 255);">
+                            Please remember though that how far you go is up to you. There is no substitute for your own
+                            work and effort in succeeding in this business.</p>
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+                <div id="foo" class="col-lg-3 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer_widget">
+                        <h5 style="color: rgb(255, 255, 255);">Services</h5>
+                        <div class="footer_widget">
+                            <ul>
+                                <li>Personal Loans</li>
+                                <li>Business Loans</li>
+                                <li>Online Cash Loans</li>
+                                <li>Cash Advance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div id="foo" class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 ">
+                    <div class="footer_widget footer_widget-address">
+                        <h5 style="color: rgb(255, 255, 255);">Open Hours</h5>
+                        <p>We work all days a week, Please contact us for any inquiry.</p>
+                        <ul>
+                            <li>Monday-Friday: 11:00 am - 8:00 pm</li>
+                            <li>Saturday: 10:00 am - 6:00 pm</li>
+                            <li>Sunday: 11:00 am - 6:00 pm</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </footer>
+</body>

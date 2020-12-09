@@ -1,0 +1,62 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+  #foo{
+
+
+    margin-top: 50px; 
+    
+    
+    }
+
+
+
+    .footer {
+        background: #195c7d;
+        padding-top: 10px;
+    }
+
+   
+
+
+
+.footer_widget p ,ul {
+
+color: rgb(242, 245, 245);
+
+
+
+
+
+    }
+
+    body{
+  
+  
+      background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+  }
+
+  th{
+
+
+background-color: rgb(19, 117, 187);
+
+
+
+  }
